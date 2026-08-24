@@ -12,6 +12,7 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
 
 - Usar siempre `pnpm` como gestor de paquetes, nunca usar `npm`.
 - El proyecto solo debe ejecutarse usando `pnpm`.
+- El diseño debe ser 100% responsive, siguiendo siempre un enfoque mobile-first.
 - Cuando el proyecto compile o funcione perfectamente (sin errores de build, lint ni typecheck), haz push a `origin` con los cambios.
 - Todos los commits deben seguir la convención de [Conventional Commits](https://www.conventionalcommits.org/), escribiendo el mensaje en español (tipo, scope y descripción en español).
 
