@@ -64,6 +64,75 @@ const statuses = statusValues.map((value) => ({ value, label: statusLabel(value)
 		score: number;
 	};
 
+	const LL2_URL = 'https://ll.thespacedevs.com/2.3.0/launches/upcoming/?limit=40&mode=detailed';
+	const SNAPSHOT_URL = import.meta.env.BASE_URL + 'api/launches.json';
+	const CACHE_KEY = 'sl_launches_cache';
+	const CACHE_TTL = 10 * 60 * 1000;
+
+	function scoreLaunch(l: Launch): number {
+		const data =
+			(l.image ? 2 : 0) +
+			(l.agency ? 1.5 : 0) +
+			(l.rocket ? 1.5 : 0) +
+			(l.pad || l.location ? 1 : 0) +
+			(l.mission && l.mission.length > 30 ? 2 : 0) +
+			(l.missionTypes?.length ? 1 : 0) +
+			(l.webcast ? 1 : 0);
+		const date = l.date ? new Date(l.date) : null;
+		const now = Date.now();
+		let rel = 0;
+		if (date) {
+			if (date.getTime() < now) rel = -5;
+			else {
+				const days = (date.getTime() - now) / 86400000;
+				rel = Math.max(0, 4 - days / 30);
+			}
+		}
+		const crewed = /human spaceflight|crewed|manned|tripulad/i.test((l.missionTypes ?? []).join(' ') + ' ' + (l.name ?? '')) ? 4 : 0;
+		return Number((data + rel + crewed).toFixed(2));
+	}
+
+	function toLaunch(r: any): Launch {
+		const l: Launch = {
+			id: `ll2:${r.id}`,
+			name: r.name,
+			date: r.net ?? null,
+			agency: r.launch_service_provider?.name ?? null,
+			rocket: r.rocket?.configuration?.name ?? null,
+			pad: r.pad?.name ?? null,
+			location: r.pad?.location?.name ?? null,
+			status: r.status?.name ?? null,
+			image: r.image?.image_url ?? null,
+			url: r.url ?? null,
+			mission: r.mission?.description ?? null,
+			missionTypes: r.mission?.type ? [r.mission.type] : [],
+			webcast: Boolean(r.webcast_live) || (Array.isArray(r.vid_urls) && r.vid_urls.length > 0),
+			score: 0,
+		};
+		l.score = scoreLaunch(l);
+		return l;
+	}
+
+	function readCache(): Launch[] | null {
+		try {
+			const raw = localStorage.getItem(CACHE_KEY);
+			if (!raw) return null;
+			const obj = JSON.parse(raw) as { ts: number; data: Launch[] };
+			if (Date.now() - obj.ts > CACHE_TTL) return null;
+			return obj.data;
+		} catch {
+			return null;
+		}
+	}
+
+	function writeCache(list: Launch[]) {
+		try {
+			localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data: list }));
+		} catch {
+			/* almacenamiento no disponible */
+		}
+	}
+
 	const STATUS_LABELS: Record<string, string> = {
 		'Go for Launch': 'Listo para lanzamiento',
 		'To Be Determined': 'Por determinar',
@@ -236,22 +305,49 @@ const statuses = statusValues.map((value) => ({ value, label: statusLabel(value)
 		status.value = selSt;
 	}
 
-	async function refresh() {
+	let allLaunches: Launch[] = [];
+
+	function render(list: Launch[]) {
+		allLaunches = list;
+		populateFilters(list);
+		grid.innerHTML = list.map(cardHTML).join('');
+		reorder();
+	}
+
+	async function refresh(force = false) {
 		if (busy) return;
 		busy = true;
 		btn.disabled = true;
 		btnIcon.classList.add('animate-spin');
 		try {
-			const res = await fetch('/api/launches.json', { cache: 'no-store' });
+			if (!force) {
+				const cached = readCache();
+				if (cached) {
+					render(cached);
+					stamp.textContent = `En caché · ${new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })}`;
+					return;
+				}
+			}
+			const res = await fetch(LL2_URL, {
+				headers: { Accept: 'application/json' },
+				signal: AbortSignal.timeout(15000),
+			});
 			if (!res.ok) throw new Error(`HTTP ${res.status}`);
-			const list = (await res.json()) as Launch[];
-			populateFilters(list);
-			grid.innerHTML = list.map(cardHTML).join('');
-			reorder();
-			const now = new Date();
-			stamp.textContent = `Actualizado a las ${now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })}`;
+			const json = (await res.json()) as any;
+			const list = (json.results ?? []).map(toLaunch);
+			writeCache(list);
+			render(list);
+			stamp.textContent = `Actualizado a las ${new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })}`;
 		} catch (err) {
-			stamp.textContent = `No se pudo actualizar: ${err instanceof Error ? err.message : String(err)}`;
+			try {
+				const res2 = await fetch(SNAPSHOT_URL, { cache: 'no-store' });
+				if (!res2.ok) throw new Error(`snapshot HTTP ${res2.status}`);
+				const list = (await res2.json()) as Launch[];
+				render(list);
+				stamp.textContent = 'Modo caché (sin conexión con la API)';
+			} catch {
+				stamp.textContent = `No se pudo actualizar: ${err instanceof Error ? err.message : String(err)}`;
+			}
 		} finally {
 			busy = false;
 			btn.disabled = false;
@@ -263,9 +359,9 @@ const statuses = statusValues.map((value) => ({ value, label: statusLabel(value)
 	agency.addEventListener('input', apply);
 	status.addEventListener('input', apply);
 	sort.addEventListener('change', reorder);
-	btn.addEventListener('click', refresh);
+	btn.addEventListener('click', () => refresh(true));
 
 	reorder();
-	setInterval(refresh, 6 * 60 * 1000);
-	stamp.textContent = `Actualizado a las ${new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })}`;
+	refresh();
+	setInterval(() => refresh(false), 6 * 60 * 1000);
 </script>

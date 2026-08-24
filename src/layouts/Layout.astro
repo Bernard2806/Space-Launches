@@ -14,7 +14,8 @@ const {
 	description = 'Sigue en tiempo real los próximos lanzamientos de cohetes y misiones espaciales de SpaceX, NASA, Rocket Lab y más con imágenes diarias del cosmos.',
 } = Astro.props;
 
-const apod: ApodData = await getDailyApod();
+	const apod: ApodData = await getDailyApod();
+	const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -22,8 +23,8 @@ const apod: ApodData = await getDailyApod();
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+		<link rel="icon" href={`${base}favicon.ico`} />
 		<meta name="generator" content={Astro.generator} />
 
 		<!-- SEO Meta Tags -->
