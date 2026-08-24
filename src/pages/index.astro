@@ -26,6 +26,18 @@ const statuses = statusValues.map((value) => ({ value, label: statusLabel(value)
 			</p>
 		</header>
 
+		<div class="mb-4 flex flex-wrap items-center justify-between gap-3">
+			<p id="update-stamp" class="text-xs text-slate-400">Cargando datos…</p>
+			<button
+				id="refresh-btn"
+				type="button"
+				class="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-sm font-semibold text-slate-200 transition hover:border-sky-400/40 hover:text-sky-200 disabled:cursor-not-allowed disabled:opacity-50"
+			>
+				<svg id="refresh-icon" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 11-3-6.7M21 3v6h-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+				Actualizar
+			</button>
+		</div>
+
 		<LaunchFilters agencies={agencies} statuses={statuses} />
 
 		<section id="launches-grid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -35,6 +47,132 @@ const statuses = statusValues.map((value) => ({ value, label: statusLabel(value)
 </Layout>
 
 <script>
+	type Launch = {
+		id: string;
+		name: string;
+		date: string | null;
+		agency: string | null;
+		rocket: string | null;
+		pad: string | null;
+		location: string | null;
+		status: string | null;
+		image: string | null;
+		url: string | null;
+		mission: string | null;
+		missionTypes: string[];
+		webcast: boolean;
+		score: number;
+	};
+
+	const STATUS_LABELS: Record<string, string> = {
+		'Go for Launch': 'Listo para lanzamiento',
+		'To Be Determined': 'Por determinar',
+		TBD: 'Por determinar',
+		'Success Launch Successful': 'Lanzamiento exitoso',
+		'Launch Successful': 'Lanzamiento exitoso',
+		'In Flight': 'En vuelo',
+		Failed: 'Fallido',
+		'Partial Failure': 'Fallo parcial',
+		Hold: 'En espera',
+		'In Review': 'En revisión',
+		'Prelaunch': 'Pre-lanzamiento',
+		'Launch is Schedule': 'Programado',
+	};
+
+	function statusLabel(raw?: string | null): string {
+		if (!raw) return 'Estado desconocido';
+		return STATUS_LABELS[raw] ?? raw;
+	}
+
+	function statusBadgeClass(raw?: string | null): string {
+		const k = raw ?? '';
+		if (/success/i.test(k)) return 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30';
+		if (/fail/i.test(k)) return 'bg-rose-500/15 text-rose-300 border-rose-500/30';
+		if (/go for launch/i.test(k)) return 'bg-sky-500/15 text-sky-300 border-sky-500/30';
+		if (/determined|tbd/i.test(k)) return 'bg-amber-500/15 text-amber-300 border-amber-500/30';
+		return 'bg-slate-500/15 text-slate-300 border-slate-500/30';
+	}
+
+	function formatDate(iso?: string | null): string {
+		if (!iso) return 'Fecha por confirmar';
+		const d = new Date(iso);
+		if (isNaN(d.getTime())) return 'Fecha por confirmar';
+		const fecha = d.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+		const hora = d.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+		return `${fecha} · ${hora}`;
+	}
+
+	function esc(s: unknown): string {
+		return String(s ?? '').replace(/[&<>"']/g, (c) => ({
+			'&': '&amp;',
+			'<': '&lt;',
+			'>': '&gt;',
+			'"': '&quot;',
+			"'": '&#39;',
+		}[c] as string));
+	}
+
+	function icon(path: string): string {
+		return `<svg class="h-3.5 w-3.5 text-sky-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${path}</svg>`;
+	}
+
+	function cardHTML(l: Launch): string {
+		const name = l.name ?? 'Lanzamiento sin título';
+		const statusEs = statusLabel(l.status);
+		const badge = statusBadgeClass(l.status);
+		const dateEs = formatDate(l.date);
+		const searchName = (name + ' ' + (l.agency ?? '')).toLowerCase();
+		const hasImage = Boolean(l.image);
+		const image = hasImage
+			? `<img src="${esc(l.image)}" alt="${esc(name)}" loading="lazy" class="h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-105 group-hover:opacity-100" />`
+			: `<div class="h-full w-full bg-gradient-to-br from-slate-800 via-slate-900 to-black"></div>`;
+		const webcast = l.webcast
+			? `<span class="flex items-center gap-1.5 rounded-full border border-rose-500/30 bg-rose-500/15 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-rose-300"><span class="h-1.5 w-1.5 animate-pulse rounded-full bg-rose-400"></span>Webcast</span>`
+			: '';
+		const agency = l.agency
+			? `<span class="inline-flex items-center gap-1.5">${icon('<path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" stroke-linecap="round" stroke-linejoin="round"/>')}${esc(l.agency)}</span>`
+			: '';
+		const rocket = l.rocket
+			? `<span class="inline-flex items-center gap-1.5">${icon('<path d="M12 2c3 2 5 6 5 10l-3 3H10l-3-3c0-4 2-8 5-10zM12 15v7M9 22h6" stroke-linecap="round" stroke-linejoin="round"/>')}${esc(l.rocket)}</span>`
+			: '';
+		const location = l.location
+			? `<p class="flex items-center gap-1.5 text-sm text-slate-400">${icon('<path d="M12 21s-7-6.5-7-12a7 7 0 1114 0c0 5.5-7 12-7 12z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5"/>')}${esc(l.location)}${l.pad ? ` · ${esc(l.pad)}` : ''}</p>`
+			: '';
+		const mission = l.mission
+			? `<p class="line-clamp-3 text-sm leading-relaxed text-slate-400">${esc(l.mission)}</p>`
+			: '';
+		const chips = l.missionTypes?.length
+			? `<div class="mt-auto flex flex-wrap gap-1.5 pt-1">${l.missionTypes
+					.map((t) => `<span class="rounded-md bg-white/5 px-2 py-0.5 text-[11px] font-medium text-slate-300">${esc(t)}</span>`)
+					.join('')}</div>`
+			: '';
+		const link = l.url
+			? `<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-sky-300 transition hover:text-sky-200">Ver detalles en The Space Devs ${icon('<path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/>')}</a>`
+			: '';
+
+		return `<article class="launch-card group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-sky-400/40 hover:shadow-[0_0_40px_-12px_rgba(56,189,248,0.55)]" data-name="${esc(searchName)}" data-agency="${esc((l.agency ?? '').toLowerCase())}" data-status="${esc(l.status ?? '')}" data-date="${esc(l.date ?? '')}" data-score="${l.score}">
+			<div class="relative h-48 w-full overflow-hidden bg-slate-900">
+				${image}
+				<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+				<div class="absolute right-3 top-3 flex flex-col items-end gap-2">
+					<span class="rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide ${badge}">${statusEs}</span>
+					${webcast}
+				</div>
+				<div class="absolute bottom-3 left-4 right-4">
+					<h3 class="text-lg font-bold leading-tight text-white drop-shadow line-clamp-2">${esc(name)}</h3>
+				</div>
+			</div>
+			<div class="flex flex-1 flex-col gap-3 p-4">
+				<div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-300">${agency}${rocket}</div>
+				${location}
+				<p class="flex items-center gap-1.5 text-sm font-medium text-slate-200">${icon('<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4" stroke-linecap="round"/>')}${dateEs}</p>
+				${mission}
+				${chips}
+				${link}
+			</div>
+		</article>`;
+	}
+
 	const search = document.getElementById('search') as HTMLInputElement;
 	const agency = document.getElementById('filter-agency') as HTMLSelectElement;
 	const status = document.getElementById('filter-status') as HTMLSelectElement;
@@ -42,6 +180,11 @@ const statuses = statusValues.map((value) => ({ value, label: statusLabel(value)
 	const grid = document.getElementById('launches-grid') as HTMLElement;
 	const count = document.getElementById('result-count') as HTMLElement;
 	const none = document.getElementById('no-results') as HTMLElement;
+	const stamp = document.getElementById('update-stamp') as HTMLElement;
+	const btn = document.getElementById('refresh-btn') as HTMLButtonElement;
+	const btnIcon = document.getElementById('refresh-icon') as SVGElement;
+
+	let busy = false;
 
 	function apply() {
 		const q = (search.value || '').toLowerCase().trim();
@@ -79,10 +222,50 @@ const statuses = statusValues.map((value) => ({ value, label: statusLabel(value)
 		apply();
 	}
 
+	function populateFilters(list: Launch[]) {
+		const ags = [...new Set(list.map((l) => l.agency).filter((a): a is string => Boolean(a)))].sort();
+		const sts = [...new Set(list.map((l) => l.status).filter((s): s is string => Boolean(s)))]
+			.map((v) => ({ v, label: statusLabel(v) }))
+			.sort((a, b) => a.label.localeCompare(b.label));
+
+		const selAg = agency.value;
+		const selSt = status.value;
+		agency.innerHTML = '<option value="">Todas las agencias</option>' + ags.map((a) => `<option value="${esc(a.toLowerCase())}">${esc(a)}</option>`).join('');
+		status.innerHTML = '<option value="">Todos los estados</option>' + sts.map((s) => `<option value="${esc(s.v)}">${esc(s.label)}</option>`).join('');
+		agency.value = selAg;
+		status.value = selSt;
+	}
+
+	async function refresh() {
+		if (busy) return;
+		busy = true;
+		btn.disabled = true;
+		btnIcon.classList.add('animate-spin');
+		try {
+			const res = await fetch('/api/launches.json', { cache: 'no-store' });
+			if (!res.ok) throw new Error(`HTTP ${res.status}`);
+			const list = (await res.json()) as Launch[];
+			populateFilters(list);
+			grid.innerHTML = list.map(cardHTML).join('');
+			reorder();
+			const now = new Date();
+			stamp.textContent = `Actualizado a las ${now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })}`;
+		} catch (err) {
+			stamp.textContent = `No se pudo actualizar: ${err instanceof Error ? err.message : String(err)}`;
+		} finally {
+			busy = false;
+			btn.disabled = false;
+			btnIcon.classList.remove('animate-spin');
+		}
+	}
+
 	search.addEventListener('input', apply);
 	agency.addEventListener('input', apply);
 	status.addEventListener('input', apply);
 	sort.addEventListener('change', reorder);
+	btn.addEventListener('click', refresh);
 
 	reorder();
+	setInterval(refresh, 6 * 60 * 1000);
+	stamp.textContent = `Actualizado a las ${new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })}`;
 </script>
