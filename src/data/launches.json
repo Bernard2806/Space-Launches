@@ -1,0 +1,542 @@
+[
+  {
+    "id": "ll2:ad501ebd-a357-4305-90c1-c46c6feb2ecf",
+    "name": "Falcon 9 Block 5 | Starlink Group 10-49",
+    "date": "2026-08-25T09:33:38Z",
+    "agency": "SpaceX",
+    "rocket": "Falcon 9",
+    "pad": "Space Launch Complex 40",
+    "location": "Cape Canaveral SFS, FL, USA",
+    "status": "Go for Launch",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/ad501ebd-a357-4305-90c1-c46c6feb2ecf/",
+    "mission": "A batch of 29 satellites for the Starlink mega-constellation - SpaceX's project for space-based Internet communication system.",
+    "missionTypes": [
+      "Communications"
+    ],
+    "webcast": true,
+    "score": 13.98
+  },
+  {
+    "id": "ll2:95653d52-bb77-4860-a815-dd7141778d17",
+    "name": "Falcon 9 Block 5 | Starlink Group 15-22",
+    "date": "2026-08-26T09:27:00Z",
+    "agency": "SpaceX",
+    "rocket": "Falcon 9",
+    "pad": "Space Launch Complex 4E",
+    "location": "Vandenberg SFB, CA, USA",
+    "status": "Go for Launch",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/95653d52-bb77-4860-a815-dd7141778d17/",
+    "mission": "A batch of 27 satellites for the Starlink mega-constellation - SpaceX's project for space-based Internet communication system.",
+    "missionTypes": [
+      "Communications"
+    ],
+    "webcast": true,
+    "score": 13.94
+  },
+  {
+    "id": "ll2:521f3a1c-f977-4306-9b7f-495858719adf",
+    "name": "Falcon Heavy | Nancy Grace Roman Space Telescope",
+    "date": "2026-08-30T11:26:00Z",
+    "agency": "SpaceX",
+    "rocket": "Falcon Heavy",
+    "pad": "Launch Complex 39A",
+    "location": "Kennedy Space Center, FL, USA",
+    "status": "Go for Launch",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_heavy_image_20220129192819.jpeg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/521f3a1c-f977-4306-9b7f-495858719adf/",
+    "mission": "The Nancy Grace Roman Space Telescope is a NASA infrared space telescope with a 2.4 m (7.9 ft) wide field of view primary mirror and two scientific instruments. The Wide-Field Instrument (WFI) is a 300.8-megapixel multi-band visible and near-infrared camera, providing a sharpness of images comparable to that achieved by the Hubble Space Telescope over a 0.28 square degree field of view, 100 times larger than imaging cameras on the Hubble. The Coronagraphic Instrument (CGI) is a high-contrast, small field of view camera and spectrometer covering visible and near-infrared wavelengths using novel starlight-suppression technology. Roman objectives include a search for extra-solar planets using gravitational microlensing, and probing the expansion history of the Universe and the growth of cosmic structure, with the goal of measuring the effects of dark energy, the consistency of general relativity, and the curvature of spacetime.",
+    "missionTypes": [
+      "Astrophysics"
+    ],
+    "webcast": true,
+    "score": 13.81
+  },
+  {
+    "id": "ll2:1b23eb18-e06e-4058-9b42-e95ca0980511",
+    "name": "Spectrum | Onward and Upward",
+    "date": "2026-08-31T00:00:00Z",
+    "agency": "Isar Aerospace",
+    "rocket": "Spectrum",
+    "pad": "Orbital Launch Pad",
+    "location": "Andøya Spaceport",
+    "status": "To Be Determined",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/spectrum_on_the_image_20250321072643.jpeg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/1b23eb18-e06e-4058-9b42-e95ca0980511/",
+    "mission": "Second test flight of the Isar Spectrum launch vehicle. This launch will carry 5 cubesats and 1 non-separable experiment as part of European Space Agency (ESA)'s “Boost!” program:\r\n\r\n* CyBEEsat (TU Berlin)\r\n* TriSat-S (University of Maribor)\r\n* Platform 6 (EnduroSat)\r\n* FramSat-1 (NTNU)\r\n* SpaceTeamSat1 (TU Wien Space Team)\r\n* Let It Go (Dcubed, non-separable experiment)",
+    "missionTypes": [
+      "Test Flight"
+    ],
+    "webcast": true,
+    "score": 13.79
+  },
+  {
+    "id": "ll2:63181269-b125-4c36-951c-c9bd9bbc4b55",
+    "name": "Falcon 9 Block 5 | Starlink Group 15-23",
+    "date": "2026-09-01T08:01:00Z",
+    "agency": "SpaceX",
+    "rocket": "Falcon 9",
+    "pad": "Space Launch Complex 4E",
+    "location": "Vandenberg SFB, CA, USA",
+    "status": "Go for Launch",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/63181269-b125-4c36-951c-c9bd9bbc4b55/",
+    "mission": "A batch of 27 satellites for the Starlink mega-constellation - SpaceX's project for space-based Internet communication system.",
+    "missionTypes": [
+      "Communications"
+    ],
+    "webcast": true,
+    "score": 13.74
+  },
+  {
+    "id": "ll2:153ef8ef-b12b-43f4-a4bf-05b225c0cd37",
+    "name": "Falcon 9 Block 5 | Starlink Group 15-24",
+    "date": "2026-09-04T11:28:00Z",
+    "agency": "SpaceX",
+    "rocket": "Falcon 9",
+    "pad": "Space Launch Complex 4E",
+    "location": "Vandenberg SFB, CA, USA",
+    "status": "Go for Launch",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/153ef8ef-b12b-43f4-a4bf-05b225c0cd37/",
+    "mission": "A batch of 27 satellites for the Starlink mega-constellation - SpaceX's project for space-based Internet communication system.",
+    "missionTypes": [
+      "Communications"
+    ],
+    "webcast": true,
+    "score": 13.64
+  },
+  {
+    "id": "ll2:a57aed97-b94f-42e1-905e-9421dbd96ac8",
+    "name": "Ariane 62 | MTG-I2",
+    "date": "2026-08-27T20:10:00Z",
+    "agency": "Arianespace",
+    "rocket": "Ariane 62",
+    "pad": "Ariane Launch Area 4",
+    "location": "Guiana Space Centre, French Guiana",
+    "status": "Go for Launch",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/ariane_62_lifto_image_20240711132056.jpeg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/a57aed97-b94f-42e1-905e-9421dbd96ac8/",
+    "mission": "Third of EUMETSAT's third generation of weather satellite.",
+    "missionTypes": [
+      "Earth Science"
+    ],
+    "webcast": false,
+    "score": 12.89
+  },
+  {
+    "id": "ll2:ab3c1e6c-03fe-48a7-b6ce-30c79569bdfb",
+    "name": "Angara 1.2 | Kosmos (Unknown Payload)",
+    "date": "2026-08-31T00:00:00Z",
+    "agency": "Russian Space Forces",
+    "rocket": "Angara 1.2",
+    "pad": "35/1",
+    "location": "Plesetsk Cosmodrome, Russian Federation",
+    "status": "To Be Determined",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/angara25201.2_image_20190224012254.jpeg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/ab3c1e6c-03fe-48a7-b6ce-30c79569bdfb/",
+    "mission": "Unknown classified satellite(s) for the Russian military.",
+    "missionTypes": [
+      "Government/Top Secret"
+    ],
+    "webcast": false,
+    "score": 12.79
+  },
+  {
+    "id": "ll2:dc570565-4dcf-4ab9-8174-bf88efef477f",
+    "name": "Long March 12A | Flight 2",
+    "date": "2026-08-31T00:00:00Z",
+    "agency": "China Aerospace Science and Technology Corporation",
+    "rocket": "Long March 12A",
+    "pad": "Long March 12 series Pad",
+    "location": "Jiuquan Satellite Launch Center, People's Republic of China",
+    "status": "To Be Determined",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_12a__image_20251224005749.jpg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/dc570565-4dcf-4ab9-8174-bf88efef477f/",
+    "mission": "Second test launch of CASC/SAST’s Long March 12A rocket. Payload identities are TBD.",
+    "missionTypes": [
+      "Test Flight"
+    ],
+    "webcast": false,
+    "score": 12.79
+  },
+  {
+    "id": "ll2:9e27a1ed-e81a-4918-b32b-0380cf3a9f8f",
+    "name": "Mir | Demo Flight",
+    "date": "2026-08-31T00:00:00Z",
+    "agency": "Agency for Defense Development",
+    "rocket": "Mir",
+    "pad": "ADD Offshore launch platform",
+    "location": "Sea Launch",
+    "status": "To Be Determined",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/south2520korea_image_20231204145331.png",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/9e27a1ed-e81a-4918-b32b-0380cf3a9f8f/",
+    "mission": "Note: Launch vehicle name is provisional.\r\n\r\nFirst orbital full version launch of the South Korean military small satellite launch vehicle, after 2 sub-orbital tests of individual stages on 30 March and 30 December 2022, and 1 orbital test flight without the 2nd stage on 4 December 2023. Details TBD.",
+    "missionTypes": [
+      "Test Flight"
+    ],
+    "webcast": false,
+    "score": 12.79
+  },
+  {
+    "id": "ll2:9f5a4cb6-63f9-47e1-9512-b468bae2a8e6",
+    "name": "Electron | Owl Around The World (StriX Launch 11)",
+    "date": "2026-08-31T12:00:00Z",
+    "agency": "Rocket Lab",
+    "rocket": "Electron",
+    "pad": "Unknown Pad",
+    "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
+    "status": "Go for Launch",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/9f5a4cb6-63f9-47e1-9512-b468bae2a8e6/",
+    "mission": "Synthetic aperture radar satellite for Japanese Earth imaging company Synspective.",
+    "missionTypes": [
+      "Earth Science"
+    ],
+    "webcast": false,
+    "score": 12.77
+  },
+  {
+    "id": "ll2:d793ba47-faf5-4bab-a386-39a9ccc49c90",
+    "name": "Soyuz 2.1b | Progress MS-35 (96P)",
+    "date": "2026-09-09T16:10:00Z",
+    "agency": "Russian Federal Space Agency (ROSCOSMOS)",
+    "rocket": "Soyuz 2.1b",
+    "pad": "31/6",
+    "location": "Baikonur Cosmodrome, Republic of Kazakhstan",
+    "status": "To Be Confirmed",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/soyuz_2.1b_image_20230802085331.jpg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/d793ba47-faf5-4bab-a386-39a9ccc49c90/",
+    "mission": "Progress resupply mission to the International Space Station.",
+    "missionTypes": [
+      "Resupply"
+    ],
+    "webcast": false,
+    "score": 12.47
+  },
+  {
+    "id": "ll2:18441371-8b2e-457c-afb5-1ec1b11ab630",
+    "name": "Falcon 9 Block 5 | Crew-13",
+    "date": "2026-09-12T22:34:00Z",
+    "agency": "SpaceX",
+    "rocket": "Falcon 9",
+    "pad": "Space Launch Complex 40",
+    "location": "Cape Canaveral SFS, FL, USA",
+    "status": "Go for Launch",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20220301072106.jpeg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/18441371-8b2e-457c-afb5-1ec1b11ab630/",
+    "mission": "SpaceX Crew-13 is the thirteenth crewed operational flight of a Crew Dragon spacecraft to the International Space Station as part of NASA's Commercial Crew Program.",
+    "missionTypes": [
+      "Human Exploration"
+    ],
+    "webcast": false,
+    "score": 12.36
+  },
+  {
+    "id": "ll2:8effc13a-c658-4d2e-9f15-8dba4d7fe2dd",
+    "name": "Vega-C | Sentinel-3C & FLEX",
+    "date": "2026-09-15T01:21:07Z",
+    "agency": "Avio S.p.A",
+    "rocket": "Vega-C",
+    "pad": "Ariane Launch Area 1 (ELV)",
+    "location": "Guiana Space Centre, French Guiana",
+    "status": "Go for Launch",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/vega-c_image_20220713154437.jpg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/8effc13a-c658-4d2e-9f15-8dba4d7fe2dd/",
+    "mission": "Sentinel-3C is the third satellite in the Sentinel-3 constellation, which provides high-accuracy optical, radar and altimetry data for marine and land services.\r\n\r\nThe Fluorescence Explorer (FLEX) satellite is a part of ESA's Earth Explorer program. The satellite will map vegetation fluorescence to quantify photosynthetic activity.",
+    "missionTypes": [
+      "Earth Science"
+    ],
+    "webcast": false,
+    "score": 12.29
+  },
+  {
+    "id": "ll2:599ba2df-7483-4b2f-a083-2b5ddc06e069",
+    "name": "Electron | LOXSAT 1",
+    "date": "2026-09-30T00:00:00Z",
+    "agency": "Rocket Lab",
+    "rocket": "Electron",
+    "pad": "Unknown Pad",
+    "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
+    "status": "To Be Determined",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/599ba2df-7483-4b2f-a083-2b5ddc06e069/",
+    "mission": "LOXSAT 1 is a demonstration satellite of a complete cryogenic oxygen fluid management system in orbit, developed by Eta Space and sponsored by NASA's Tipping Point program.\r\n\r\nThe system will be integrated on a Rocket Lab Photon-LEO satellite bus and collect critical cryogenic fluid management data in orbit for 9 months, demonstrating capabilities of in-space cryogenic storage and transferal. Eta Space plans to use technology developed for this mission to develop a truly commercial depot intended to serve multiple customers in the future.",
+    "missionTypes": [
+      "Technology"
+    ],
+    "webcast": false,
+    "score": 11.79
+  },
+  {
+    "id": "ll2:ad358a4d-c541-409b-9366-9c2f2da4aeb9",
+    "name": "Falcon 9 Block 5 | O3b mPower 11-13",
+    "date": "2026-09-30T00:00:00Z",
+    "agency": "SpaceX",
+    "rocket": "Falcon 9",
+    "pad": "Space Launch Complex 40",
+    "location": "Cape Canaveral SFS, FL, USA",
+    "status": "To Be Determined",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/ad358a4d-c541-409b-9366-9c2f2da4aeb9/",
+    "mission": "3 high-throughput communications satellites in Medium Earth Orbit (MEO) built by Boeing and operated by SES.",
+    "missionTypes": [
+      "Communications"
+    ],
+    "webcast": false,
+    "score": 11.79
+  },
+  {
+    "id": "ll2:17d0ec68-f466-4916-9dc5-16123eda6484",
+    "name": "GSLV Mk II | GISAT-1A (EOS-05)",
+    "date": "2026-09-30T00:00:00Z",
+    "agency": "Indian Space Research Organization",
+    "rocket": "GSLV Mk II",
+    "pad": "Satish Dhawan Space Centre Second Launch Pad",
+    "location": "Satish Dhawan Space Centre, India",
+    "status": "To Be Determined",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/gslv2520mk2520ii_image_20190825171642.jpg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/17d0ec68-f466-4916-9dc5-16123eda6484/",
+    "mission": "GISAT-1A (GEO Imaging Satellite) is an Indian earth observing satellite operating from geostationary orbit to facilitate continuous observation of Indian sub-continent, quick monitoring of natural hazards and disaster.",
+    "missionTypes": [
+      "Earth Science"
+    ],
+    "webcast": false,
+    "score": 11.79
+  },
+  {
+    "id": "ll2:20d5676e-111b-40e3-8923-b218c3665ca2",
+    "name": "GSLV Mk II | IRNSS-1L (NVS-03)",
+    "date": "2026-09-30T00:00:00Z",
+    "agency": "Indian Space Research Organization",
+    "rocket": "GSLV Mk II",
+    "pad": "Satish Dhawan Space Centre Second Launch Pad",
+    "location": "Satish Dhawan Space Centre, India",
+    "status": "To Be Determined",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/gslv2520mk252_image_20240101090337.jpg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/20d5676e-111b-40e3-8923-b218c3665ca2/",
+    "mission": "This is a replacement satellite for the Indian Regional Navigation Satellite System. The constellation will provide India with an alternative to GPS and will be used for military and civilian use. Located at a geosynchronous orbit, the system will be operated by the Indian government.",
+    "missionTypes": [
+      "Navigation"
+    ],
+    "webcast": false,
+    "score": 11.79
+  },
+  {
+    "id": "ll2:9d402fb6-9115-424d-b6f0-bd3b13ee310e",
+    "name": "Long March 5 | Chang'e 7",
+    "date": "2026-09-30T00:00:00Z",
+    "agency": "China Aerospace Science and Technology Corporation",
+    "rocket": "Long March 5",
+    "pad": "101",
+    "location": "Wenchang Space Launch Site, People's Republic of China",
+    "status": "To Be Determined",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_5_tj_image_20260612043435.jpg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/9d402fb6-9115-424d-b6f0-bd3b13ee310e/",
+    "mission": "Chang'e 7/CE-7 is scheduled to launch in 2026, including an orbiter, a lander, a mini-hopping probe, and a rover. The mission will land in the South Pole regions of the Moon to study lunar surface environment around the South Pole, especially in looking for water ice in lunar soil.",
+    "missionTypes": [
+      "Planetary Science"
+    ],
+    "webcast": false,
+    "score": 11.79
+  },
+  {
+    "id": "ll2:7d1afb26-6f9c-429b-9ccf-29012fd1e519",
+    "name": "Starship | Flight 14",
+    "date": "2026-09-30T00:00:00Z",
+    "agency": "SpaceX",
+    "rocket": "Starship",
+    "pad": "Orbital Launch Pad 2",
+    "location": "SpaceX Starbase, TX, USA",
+    "status": "To Be Determined",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/starship_on_the_image_20260724044615.jpg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/7d1afb26-6f9c-429b-9ccf-29012fd1e519/",
+    "mission": "14th test flight of the two-stage Starship launch vehicle. 3rd flight of Starship V3.",
+    "missionTypes": [
+      "Test Flight"
+    ],
+    "webcast": false,
+    "score": 11.79
+  },
+  {
+    "id": "ll2:ef9850ad-1096-425b-9d27-f7bbd186e61a",
+    "name": "Vulcan VC6L | Amazon Leo (LV-01)",
+    "date": "2026-09-30T00:00:00Z",
+    "agency": "United Launch Alliance",
+    "rocket": "Vulcan VC6L",
+    "pad": "Space Launch Complex 41",
+    "location": "Cape Canaveral SFS, FL, USA",
+    "status": "To Be Determined",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/vulcan_vc6l_image_20220406123130.jpg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/ef9850ad-1096-425b-9d27-f7bbd186e61a/",
+    "mission": "Amazon Leo, formerly known as Project Kuiper, is a mega constellation of satellites in Low Earth Orbit that will offer broadband internet access, this constellation will be managed by Kuiper Systems LLC, a subsidiary of Amazon. This constellation is planned to be composed of 3,276 satellites. The satellites are projected to be placed in 98 orbital planes in three orbital layers, one at 590 km, 610 km and 630 km altitude.\r\n\r\n45 satellites will be carried on each Vulcan launch.",
+    "missionTypes": [
+      "Communications"
+    ],
+    "webcast": false,
+    "score": 11.79
+  },
+  {
+    "id": "ll2:7766f3bb-674c-4c71-b986-963bd633fcfe",
+    "name": "Electron | 6x HawkEye 360",
+    "date": "2026-09-30T00:00:00Z",
+    "agency": "Rocket Lab",
+    "rocket": "Electron",
+    "pad": "Unknown Pad",
+    "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
+    "status": "To Be Determined",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/7766f3bb-674c-4c71-b986-963bd633fcfe/",
+    "mission": "HawkEye 360 is a a space-based civil global intelligence satellite network using radio frequency (RF) technology to help monitor transportation across air, land and sea and assist with emergencies, and to provide civil SIGINT (Signal Intelligence) mission.\r\n\r\nThe constellation of small satellites (named Hawk ) will collect information on specific radio signals worldwide to provide high-precision radio frequency mapping and analytics from Low Earth orbit (LEO).",
+    "missionTypes": [
+      "Earth Science"
+    ],
+    "webcast": false,
+    "score": 11.79
+  },
+  {
+    "id": "ll2:b81156da-c0b8-46c8-aebd-8af8d2be83cd",
+    "name": "Electron | BlackSky Gen-3 5",
+    "date": "2026-09-30T00:00:00Z",
+    "agency": "Rocket Lab",
+    "rocket": "Electron",
+    "pad": "Unknown Pad",
+    "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
+    "status": "To Be Determined",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/b81156da-c0b8-46c8-aebd-8af8d2be83cd/",
+    "mission": "BlackSky Gen-3 Earth-imaging satellites",
+    "missionTypes": [
+      "Earth Science"
+    ],
+    "webcast": false,
+    "score": 11.79
+  },
+  {
+    "id": "ll2:548df42c-ae26-4cc9-921a-f0042941911a",
+    "name": "Electron | BlackSky Gen-3 6",
+    "date": "2026-09-30T00:00:00Z",
+    "agency": "Rocket Lab",
+    "rocket": "Electron",
+    "pad": "Unknown Pad",
+    "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
+    "status": "To Be Determined",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/548df42c-ae26-4cc9-921a-f0042941911a/",
+    "mission": "BlackSky Gen-3 Earth-imaging satellites",
+    "missionTypes": [
+      "Earth Science"
+    ],
+    "webcast": false,
+    "score": 11.79
+  },
+  {
+    "id": "ll2:2d0472b9-463d-49c8-afb1-7925e49a3368",
+    "name": "Falcon 9 Block 5 | SDA Tranche 1 Tracking Layer A",
+    "date": "2026-09-30T00:00:00Z",
+    "agency": "SpaceX",
+    "rocket": "Falcon 9",
+    "pad": "Space Launch Complex 4E",
+    "location": "Vandenberg SFB, CA, USA",
+    "status": "To Be Determined",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/2d0472b9-463d-49c8-afb1-7925e49a3368/",
+    "mission": "Tranche 1 Tracking Layer A is one of five missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Tracking Layer constellation, which will provide global indications, warning, tracking, and targeting of advanced missile threats, including hypersonic missile systems.",
+    "missionTypes": [
+      "Government/Top Secret"
+    ],
+    "webcast": false,
+    "score": 11.79
+  },
+  {
+    "id": "ll2:dca8749f-1552-485a-8061-f1ad79055b8d",
+    "name": "Falcon 9 Block 5 | SDA Tranche 1 Tracking Layer C",
+    "date": "2026-09-30T00:00:00Z",
+    "agency": "SpaceX",
+    "rocket": "Falcon 9",
+    "pad": "Space Launch Complex 4E",
+    "location": "Vandenberg SFB, CA, USA",
+    "status": "To Be Determined",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/dca8749f-1552-485a-8061-f1ad79055b8d/",
+    "mission": "Tranche 1 Tracking Layer C is one of five missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Tracking Layer constellation, which will provide global indications, warning, tracking, and targeting of advanced missile threats, including hypersonic missile systems.",
+    "missionTypes": [
+      "Government/Top Secret"
+    ],
+    "webcast": false,
+    "score": 11.79
+  },
+  {
+    "id": "ll2:fcbc4550-e69e-4458-a9e6-4a5b6b6b15a5",
+    "name": "Falcon 9 Block 5 | SDA Tranche 1 Tracking Layer E",
+    "date": "2026-09-30T00:00:00Z",
+    "agency": "SpaceX",
+    "rocket": "Falcon 9",
+    "pad": "Space Launch Complex 4E",
+    "location": "Vandenberg SFB, CA, USA",
+    "status": "To Be Determined",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/fcbc4550-e69e-4458-a9e6-4a5b6b6b15a5/",
+    "mission": "Tranche 1 Tracking Layer E is one of five missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Tracking Layer constellation, which will provide global indications, warning, tracking, and targeting of advanced missile threats, including hypersonic missile systems.",
+    "missionTypes": [
+      "Government/Top Secret"
+    ],
+    "webcast": false,
+    "score": 11.79
+  },
+  {
+    "id": "ll2:da43dc2c-00af-4cc1-8ef1-90a60b2eb9e5",
+    "name": "Falcon 9 Block 5 | SDA Tranche 1 Transport Layer A",
+    "date": "2026-09-30T00:00:00Z",
+    "agency": "SpaceX",
+    "rocket": "Falcon 9",
+    "pad": "Space Launch Complex 4E",
+    "location": "Vandenberg SFB, CA, USA",
+    "status": "To Be Determined",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/da43dc2c-00af-4cc1-8ef1-90a60b2eb9e5/",
+    "mission": "Tranche 1 Transport Layer A is one of six missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Transport Layer constellation, which will provide assured, resilient, low-latency military data and connectivity worldwide to the full range of warfighter platforms from Low Earth Orbit satellites.\r\n\r\nThe constellation will be interconnected with Optical Inter-Satellite Links (OISLs) which have significantly increased performance over existing radio frequency crosslinks. It is expected to operate over Ka band, have stereo coverage and be dynamically networked for simpler hand-offs, greater bandwidth and fault tolerance.\r\n\r\nThis launch carries 21 satellites manufactured by Northrop Grumman.",
+    "missionTypes": [
+      "Government/Top Secret"
+    ],
+    "webcast": false,
+    "score": 11.79
+  },
+  {
+    "id": "ll2:4541ce85-0e38-42ac-a9a0-20474bb5f2cd",
+    "name": "Falcon 9 Block 5 | SDA Tranche 1 Transport Layer D",
+    "date": "2026-09-30T00:00:00Z",
+    "agency": "SpaceX",
+    "rocket": "Falcon 9",
+    "pad": "Space Launch Complex 4E",
+    "location": "Vandenberg SFB, CA, USA",
+    "status": "To Be Determined",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/4541ce85-0e38-42ac-a9a0-20474bb5f2cd/",
+    "mission": "Tranche 1 Transport Layer D is one of six missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Transport Layer constellation, which will provide assured, resilient, low-latency military data and connectivity worldwide to the full range of warfighter platforms from Low Earth Orbit satellites.\r\n\r\nThe constellation will be interconnected with Optical Inter-Satellite Links (OISLs) which have significantly increased performance over existing radio frequency crosslinks. It is expected to operate over Ka band, have stereo coverage and be dynamically networked for simpler hand-offs, greater bandwidth and fault tolerance.",
+    "missionTypes": [
+      "Government/Top Secret"
+    ],
+    "webcast": false,
+    "score": 11.79
+  },
+  {
+    "id": "ll2:c5783e2b-d458-4b99-9936-4043c236190b",
+    "name": "Falcon 9 Block 5 | SDA Tranche 1 Transport Layer F",
+    "date": "2026-09-30T00:00:00Z",
+    "agency": "SpaceX",
+    "rocket": "Falcon 9",
+    "pad": "Space Launch Complex 4E",
+    "location": "Vandenberg SFB, CA, USA",
+    "status": "To Be Determined",
+    "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/c5783e2b-d458-4b99-9936-4043c236190b/",
+    "mission": "Tranche 1 Transport Layer F is one of six missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Transport Layer constellation, which will provide assured, resilient, low-latency military data and connectivity worldwide to the full range of warfighter platforms from Low Earth Orbit satellites.\r\n\r\nThe constellation will be interconnected with Optical Inter-Satellite Links (OISLs) which have significantly increased performance over existing radio frequency crosslinks. It is expected to operate over Ka band, have stereo coverage and be dynamically networked for simpler hand-offs, greater bandwidth and fault tolerance.",
+    "missionTypes": [
+      "Government/Top Secret"
+    ],
+    "webcast": false,
+    "score": 11.79
+  }
+]

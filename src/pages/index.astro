@@ -1,21 +1,88 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import LaunchCard from '../components/LaunchCard.astro';
+import LaunchFilters from '../components/LaunchFilters.astro';
+import { getLaunches, statusLabel } from '../services/launches';
+
+const launches = await getLaunches();
+
+const agencies = [...new Set(launches.map((l) => l.agency).filter((a): a is string => Boolean(a)))].sort();
+
+const statusValues = [...new Set(launches.map((l) => l.status).filter((s): s is string => Boolean(s)))];
+const statuses = statusValues.map((value) => ({ value, label: statusLabel(value) })).sort((a, b) => a.label.localeCompare(b.label));
 ---
 
-<Layout title="Space Launches | Lanzamientos Espaciales">
-	<main class="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 py-12 text-center max-w-4xl mx-auto">
-		<div class="space-y-6">
-			<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-sky-300 text-xs sm:text-sm font-medium backdrop-blur-sm shadow-sm">
-				<span>🚀 Lanzamientos Espaciales en Vivo</span>
+<Layout title="Space Launches | Próximos Lanzamientos Espaciales">
+	<main class="relative z-10 mx-auto w-full max-w-6xl flex-1 px-4 py-10 sm:px-6 sm:py-14">
+		<header class="mb-10 text-center">
+			<div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1.5 text-xs font-medium text-sky-300 backdrop-blur-sm shadow-sm sm:text-sm">
+				Lanzamientos Espaciales en Vivo
 			</div>
-
-			<h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white drop-shadow-md">
-				Space <span class="text-sky-400">Launches</span>
+			<h1 class="mt-4 text-4xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-6xl">
+				Próximos <span class="text-sky-400">Lanzamientos</span>
 			</h1>
-
-			<p class="text-base sm:text-lg text-slate-200/90 max-w-xl mx-auto font-normal leading-relaxed drop-shadow">
-				Seguimiento en tiempo real de misiones y lanzamientos espaciales de todo el mundo.
+			<p class="mx-auto mt-4 max-w-xl text-base text-slate-200/90 font-normal leading-relaxed drop-shadow">
+				La crema de la crema de los próximos lanzamientos de cohetes y misiones espaciales de todo el mundo, según Launch Library 2 (The Space Devs).
 			</p>
-		</div>
+		</header>
+
+		<LaunchFilters agencies={agencies} statuses={statuses} />
+
+		<section id="launches-grid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			{launches.map((launch) => <LaunchCard launch={launch} />)}
+		</section>
 	</main>
 </Layout>
+
+<script>
+	const search = document.getElementById('search') as HTMLInputElement;
+	const agency = document.getElementById('filter-agency') as HTMLSelectElement;
+	const status = document.getElementById('filter-status') as HTMLSelectElement;
+	const sort = document.getElementById('sort') as HTMLSelectElement;
+	const grid = document.getElementById('launches-grid') as HTMLElement;
+	const count = document.getElementById('result-count') as HTMLElement;
+	const none = document.getElementById('no-results') as HTMLElement;
+
+	function apply() {
+		const q = (search.value || '').toLowerCase().trim();
+		const ag = agency.value;
+		const st = status.value;
+		const cards = Array.from(grid.querySelectorAll<HTMLElement>('.launch-card'));
+		let visible = 0;
+
+		for (const card of cards) {
+			const name = card.dataset.name || '';
+			const agc = card.dataset.agency || '';
+			const stc = card.dataset.status || '';
+			let show = true;
+			if (q && !(name.includes(q) || agc.includes(q))) show = false;
+			if (ag && agc !== ag) show = false;
+			if (st && stc !== st) show = false;
+			card.classList.toggle('hidden', !show);
+			if (show) visible++;
+		}
+
+		count.textContent = `${visible} ${visible === 1 ? 'lanzamiento' : 'lanzamientos'}`;
+		none.hidden = visible !== 0;
+	}
+
+	function reorder() {
+		const cards = Array.from(grid.querySelectorAll<HTMLElement>('.launch-card'));
+		const mode = sort.value;
+		cards.sort((a, b) => {
+			if (mode === 'score') return (Number(b.dataset.score) || 0) - (Number(a.dataset.score) || 0);
+			const da = new Date(a.dataset.date || 0).getTime();
+			const db = new Date(b.dataset.date || 0).getTime();
+			return mode === 'date-desc' ? db - da : da - db;
+		});
+		cards.forEach((c) => grid.appendChild(c));
+		apply();
+	}
+
+	search.addEventListener('input', apply);
+	agency.addEventListener('input', apply);
+	status.addEventListener('input', apply);
+	sort.addEventListener('change', reorder);
+
+	reorder();
+</script>
