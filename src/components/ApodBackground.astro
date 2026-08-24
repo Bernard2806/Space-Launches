@@ -1,0 +1,102 @@
+---
+import type { ApodData } from '../services/apod';
+
+interface Props {
+	apod: ApodData;
+}
+
+const { apod } = Astro.props;
+const backgroundUrl = apod.hdImageUrl || apod.imageUrl;
+---
+
+<div id="apod-container" class="fixed inset-0 -z-50 overflow-hidden pointer-events-none select-none">
+	<!-- Imagen de fondo de la NASA con efecto suave de carga -->
+	<div
+		id="apod-bg-image"
+		class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 scale-105"
+		style={`background-image: url('${backgroundUrl}');`}
+		aria-hidden="true"
+	>
+	</div>
+
+	<!-- Capa de Blur estético y oscurecimiento para máxima legibilidad y diseño premium -->
+	<div class="absolute inset-0 backdrop-blur-md bg-slate-950/60 transition-all duration-700"></div>
+
+	<!-- Gradiente sutil para profundidad visual y estética espacial -->
+	<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/70"></div>
+	<div class="absolute inset-0 bg-radial-at-c from-transparent via-transparent to-slate-950/80"></div>
+</div>
+
+<!-- Tarjeta informativa flotante y responsiva (Mobile-First) sobre la imagen de la NASA -->
+<aside
+	aria-label="Información de la Imagen del Día de la NASA"
+	class="fixed bottom-3 right-3 z-40 max-w-[calc(100vw-1.5rem)] sm:max-w-sm"
+>
+	<details
+		class="group bg-slate-900/70 hover:bg-slate-900/85 backdrop-blur-xl border border-white/10 hover:border-sky-500/30 rounded-2xl p-3 text-white shadow-2xl transition-all duration-300 pointer-events-auto"
+	>
+		<summary class="flex items-center justify-between gap-3 cursor-pointer list-none select-none text-xs font-medium">
+			<div class="flex items-center gap-2 min-w-0">
+				<span class="relative flex h-2.5 w-2.5 shrink-0">
+					<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+					<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-sky-500"></span>
+				</span>
+				<span class="text-sky-400 font-semibold tracking-wide uppercase text-[10px]">NASA APOD</span>
+				<span class="truncate text-slate-300 text-xs font-medium" id="apod-summary-title">{apod.title}</span>
+			</div>
+			<svg
+				class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform duration-300 shrink-0"
+				fill="none"
+				stroke="currentColor"
+				viewBox="0 0 24 24"
+			>
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+			</svg>
+		</summary>
+
+		<div class="mt-3 pt-2 border-t border-white/10 text-xs space-y-2 animate-fadeIn">
+			<h4 class="font-bold text-white text-sm" id="apod-modal-title">{apod.title}</h4>
+			<p class="text-[11px] text-slate-400 flex items-center justify-between">
+				<span>📅 {apod.date}</span>
+				{apod.copyright && <span class="truncate ml-2 text-right">© {apod.copyright}</span>}
+			</p>
+			<div class="pt-1 flex items-center justify-between gap-2">
+				<a
+					href="https://apod.nasa.gov/apod/astropix.html"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-flex items-center gap-1.5 text-[11px] font-semibold text-sky-400 hover:text-sky-300 underline underline-offset-2 transition-colors"
+				>
+					Ver en NASA APOD
+					<svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+					</svg>
+				</a>
+				<a
+					href={backgroundUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="px-2 py-1 bg-white/10 hover:bg-sky-500/20 text-[11px] rounded-lg text-slate-200 hover:text-white transition-colors"
+				>
+					Ver HD
+				</a>
+			</div>
+		</div>
+	</details>
+</aside>
+
+<style>
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(-4px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	.animate-fadeIn {
+		animation: fadeIn 0.25s ease-out forwards;
+	}
+</style>

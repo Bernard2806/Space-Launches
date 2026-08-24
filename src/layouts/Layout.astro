@@ -1,0 +1,54 @@
+---
+import '../styles/global.css';
+import ApodBackground from '../components/ApodBackground.astro';
+import { getDailyApod, type ApodData } from '../services/apod';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = 'Space Launches | Lanzamientos Espaciales en Vivo',
+	description = 'Sigue en tiempo real los próximos lanzamientos de cohetes y misiones espaciales de SpaceX, NASA, Rocket Lab y más con imágenes diarias del cosmos.',
+} = Astro.props;
+
+const apod: ApodData = await getDailyApod();
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth dark">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+
+		<!-- SEO Meta Tags -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#020617" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={apod.hdImageUrl || apod.imageUrl} />
+		<meta property="og:type" content="website" />
+
+		<!-- Tipografía moderna -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body class="min-h-screen bg-slate-950 text-slate-100 font-['Plus_Jakarta_Sans',sans-serif] antialiased selection:bg-sky-500/30 selection:text-sky-200">
+		<!-- Fondo dinámico con imagen del día de la NASA y blur -->
+		<ApodBackground apod={apod} />
+
+		<!-- Contenido principal -->
+		<div class="relative z-10 flex min-h-screen flex-col">
+			<slot />
+		</div>
+	</body>
+</html>

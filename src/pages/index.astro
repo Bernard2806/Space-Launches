@@ -1,18 +1,78 @@
 ---
-import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Space Launches</title>
-	</head>
-	<body class="bg-slate-950 text-white min-h-screen flex items-center justify-center">
-		<h1 class="text-4xl font-bold text-sky-400">Space Launches 🚀</h1>
-	</body>
-</html>
+<Layout title="Space Launches | Próximos Lanzamientos Espaciales">
+	<!-- Navbar -->
+	<header class="w-full border-b border-white/10 bg-slate-950/40 backdrop-blur-lg sticky top-0 z-30">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+			<a href="/" class="flex items-center gap-2.5 group">
+				<div class="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-400 to-indigo-600 flex items-center justify-center shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform">
+					<span class="text-lg">🚀</span>
+				</div>
+				<div>
+					<span class="font-extrabold text-lg sm:text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-100 to-sky-300">
+						Space Launches
+					</span>
+				</div>
+			</a>
 
+			<div class="flex items-center gap-3">
+				<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+					<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+					En Vivo
+				</span>
+			</div>
+		</div>
+	</header>
+
+	<!-- Main Content (Mobile-First) -->
+	<main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col gap-8">
+		<!-- Hero Section -->
+		<section class="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900/40 backdrop-blur-xl p-6 sm:p-10 text-center sm:text-left shadow-2xl">
+			<div class="relative z-10 max-w-2xl space-y-4">
+				<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-300 text-xs sm:text-sm font-medium">
+					<span>✨ Fondo diario oficial de la NASA APOD</span>
+				</div>
+				<h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+					Explora los próximos <br class="hidden sm:block" />
+					<span class="bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-indigo-300 to-purple-400">
+						lanzamientos espaciales
+					</span>
+				</h1>
+				<p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+					Monitorea las misiones de SpaceX, NASA, ESA, Rocket Lab y agencias de todo el mundo con datos actualizados y el cosmos como escenario.
+				</p>
+			</div>
+
+			<!-- Quick stats (Mobile grid) -->
+			<div class="mt-8 pt-6 border-t border-white/10 grid grid-cols-2 sm:grid-cols-3 gap-4">
+				<div class="p-3.5 rounded-2xl bg-white/5 border border-white/5">
+					<p class="text-xs text-slate-400 font-medium">Fondo Cósmico</p>
+					<p class="text-base sm:text-lg font-bold text-white mt-0.5">NASA APOD Diaria</p>
+				</div>
+				<div class="p-3.5 rounded-2xl bg-white/5 border border-white/5">
+					<p class="text-xs text-slate-400 font-medium">Experiencia</p>
+					<p class="text-base sm:text-lg font-bold text-sky-400 mt-0.5">100% Mobile-First</p>
+				</div>
+				<div class="p-3.5 rounded-2xl bg-white/5 border border-white/5 col-span-2 sm:col-span-1">
+					<p class="text-xs text-slate-400 font-medium">Estado</p>
+					<p class="text-base sm:text-lg font-bold text-emerald-400 mt-0.5">Sincronizado</p>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- Footer -->
+	<footer class="w-full border-t border-white/10 bg-slate-950/60 backdrop-blur-md py-6">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center sm:text-left">
+			<p>© {new Date().getFullYear()} Space Launches. Desarrollado con Astro & Tailwind CSS.</p>
+			<p class="flex items-center gap-1 justify-center">
+				Fotografía de fondo cortesía de
+				<a href="https://apod.nasa.gov/apod/astropix.html" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">
+					NASA APOD
+				</a>
+			</p>
+		</div>
+	</footer>
+</Layout>
